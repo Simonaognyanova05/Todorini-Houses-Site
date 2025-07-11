@@ -11,9 +11,7 @@ export default function Footer() {
                         </div>
                     </div>
                     <div class="col-12">
-                        <p>Copyright &#169; 2045 <a href="">Your Site Name</a> All Rights Reserved.</p>
-
-                        <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                        <p>Copyright &#169; 2025 <a href="">Къща за гости "Тодорини къщи" и механа "Под крушата"</a> All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
