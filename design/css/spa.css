@@ -1,0 +1,8 @@
+#spa .grid-item{
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin: 5px;
+    height: 200px;
+    width: 380px;
+}

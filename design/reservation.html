@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>Dream Castle | Направете резервация</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#" id="logo">Dream castle</a>
+        <a href="#home">За хотела</a>
+        <div class="dropdown">
+            <button class="dropbtn">Настаняване
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#product1">Двойна стая</a>
+                <a href="#product2">Двойна стая с тераса</a>
+                <a href="#product3">Двойна стая делукс</a>
+                <a href="#product3">Едностаен апартамент</a>
+                <a href="#product3">Двустаен апартамент</a>
+                <a href="#product3">ВИП апартамент</a>
+                <a href="#product3">Президентски апартамент</a>
+
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Заведения
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#product1">Ресторант</a>
+                <a href="#product2">Лоби бар</a>
+                <a href="#product3">Летен бар</a>
+
+            </div>
+        </div>
+        <a href="#services">Спа</a>
+        <a href="#services">За децата</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">Мероприятия
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#product1">Зала за мероприятия</a>
+                <a href="#product2">Банкетна зала</a>
+            </div>
+        </div>
+        <a href="#about">Резервирай</a>
+    </div>
+
+    <section id="title">
+        <h1>Резервация</h1>
+    </section>
+
+    <section id="make-reservation">
+        <form action="" method="post">
+            <label for="names">Име, презиме и фамилия: </label>
+            <input type="text" name="names">
+            <label for="typeOfRoom">Тип стая: </label>
+            <select id="typeOfRoom" name="typeOfRoom">
+                <option value="Двойна стая">Двойна стая</option>
+                <option value="Двойна стая с тераса">Двойна стая с тераса</option>
+                <option value="Двойна стая делукс">Двойна стая делукс</option>
+                <option value="Едностаен апартамент">Едностаен апартамент</option>
+                <option value="Двустаен апартамент">Двустаен апартамент</option>
+                <option value="ВИП апартамент">ВИП апартамент</option>
+                <option value="Президентски апартамент">Президентски апартамент</option>
+            </select>
+            <label for="startData">Дата на настаняване: </label>
+            <input type="date" name="startData">
+            <label for="endData">Дата на напускане: </label>
+            <input type="date" name="endData">
+            <input type="submit" value="Резервирай">
+        </form>
+    </section>
+
+    <footer>
+        <img src="./img/logo.jpg" alt="logo" id="logo-img">
+        <p>Copyright &copy; 2024 <a href="">Dream Castle</a>. All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>

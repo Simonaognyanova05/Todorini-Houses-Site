@@ -1,0 +1,16 @@
+
+.sub-title h2{
+    text-align: center;
+    color: #333;
+}
+
+#images h3{
+    text-align: center;
+    color: #333;
+}
+.food-title{
+    font-weight: 600;
+}
+.food-description{
+    font-style: italic;
+}

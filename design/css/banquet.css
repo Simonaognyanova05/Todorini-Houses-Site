@@ -1,0 +1,34 @@
+#banquet .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+#banquet .grid-item {
+    color: #333;
+    background-color: #f2f2f2; 
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 50px;
+}
+
+#banquet-img img{
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+}
+#banquet-text{
+    text-align: center;
+}
+#banquet-text .title{
+    color: #333;
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+#banquet-text .quote{
+    color: #333;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-style: italic;
+}

@@ -1,0 +1,9 @@
+#events p{
+    text-align: center;
+    color: #333;
+    padding: 20px;
+}
+#events-img img{
+    width: 100%;
+    padding-top: 20px;
+}
