@@ -12,6 +12,7 @@ export default function Header() {
   const loggedAdmin = (
     <>
       <li className="active"><Link to="/">Създаване на стая</Link></li>
+      <li className="active"><Link to="/logout">Изход</Link></li>
     </>
   );
 

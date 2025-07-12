@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Rooms from "./components/Rooms";
 import Registration from "./components/Registration";
+import Logout from "./components/Logout";
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/booking" element={<Booking />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/room" element={<Rooms />} />
 
