@@ -28,9 +28,9 @@ export default function Registration() {
             <div id="login">
                 <div class="container">
                     <div class="section-header">
-                        <h2>Registration</h2>
+                        <h2>Регистрация</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in mi libero. Quisque convallis, enim at venenatis tincidunt.
+                            Тук можете да създадете потребител със същите права като Вашите.
                         </p>
                     </div>
                     <div class="row">
@@ -39,25 +39,25 @@ export default function Registration() {
                                 <form onSubmit={registerHandler}>
                                     <div class="form-row">
                                         <div class="control-group col-sm-6">
-                                            <label>Your Name</label>
+                                            <label>Име и фамилия</label>
                                             <input type="text" class="form-control" name="names" required="required" />
                                         </div>
                                         <div class="control-group col-sm-6">
-                                            <label>Email</label>
+                                            <label>Имейл</label>
                                             <input type="email" class="form-control" name="email" required="required" />
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="control-group col-sm-6">
-                                            <label>Your Password</label>
+                                            <label>Парола</label>
                                             <input type="password" class="form-control" name="password" required="required" />
                                         </div>
                                         <div class="control-group col-sm-6">
-                                            <label>Repeat Your Password</label>
+                                            <label>Потвърдете паролата</label>
                                             <input type="password" class="form-control" name="rePass" required="required" />
                                         </div>
                                     </div>
-                                    <div class="button"><button type="submit">Registration</button></div>
+                                    <div class="button"><button type="submit">Регистрация</button></div>
                                 </form>
                             </div>
                         </div>
