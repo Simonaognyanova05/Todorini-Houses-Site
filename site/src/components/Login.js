@@ -25,9 +25,9 @@ export default function Login() {
         <div id="login">
             <div class="container">
                 <div class="section-header">
-                    <h2>Registration / Login</h2>
+                    <h2>Влизане</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in mi libero. Quisque convallis, enim at venenatis tincidunt.
+                        От тук може да влезете във вашия профил като администратор.
                     </p>
                 </div>
                 <div class="row">
@@ -36,15 +36,15 @@ export default function Login() {
                             <form onSubmit={loginHandler}>
                                 <div class="form-row">
                                     <div class="control-group col-sm-6">
-                                        <label>Your Email</label>
+                                        <label>Имейл</label>
                                         <input type="email" class="form-control" name="email" required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
-                                        <label>Your Password</label>
+                                        <label>Парола</label>
                                         <input type="password" class="form-control" name="password" required="required" />
                                     </div>
                                 </div>
-                                <div class="button"><button type="submit">Login</button></div>
+                                <div class="button"><button type="submit">Влизане</button></div>
                             </form>
                         </div>
                     </div>
