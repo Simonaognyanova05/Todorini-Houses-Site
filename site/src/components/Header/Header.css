@@ -1,0 +1,29 @@
+.main-menu {
+    display: none;
+}
+
+.main-menu.open {
+    display: block;
+}
+
+.main-menu.open {
+    display: block;
+    background: #222222;
+    /* само за тест */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+/* За desktop */
+@media screen and (min-width: 768px) {
+    .main-menu {
+        display: block !important;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+    }
+}

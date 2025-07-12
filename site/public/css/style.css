@@ -139,6 +139,7 @@ h6 {
     display: block;
     transition: color .25s ease, background-color .25s ease;
 }
+
 .mobile-menu-btn {
     color: #FFD700;
     text-align: center;
@@ -201,6 +202,7 @@ h6 {
     padding-right: 10px;
     font-size: 20px;
 }
+
 @media (max-width: 575.98px) {
     #header .logo {
         padding-left: 5px;
@@ -222,6 +224,7 @@ h6 {
         padding: 0 30px;
     }
 }
+
 @media (max-width: 1199.98px) {
     .main-menu {
         display: none;
@@ -254,7 +257,7 @@ h6 {
     left: 0;
     right: 0;
     height: 100px;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     z-index: 1;
 }
 
@@ -307,7 +310,7 @@ h6 {
     #search {
         padding: 30px 0 35px 0;
     }
-    
+
     #search .kid {
         margin-top: 15px;
     }
@@ -356,7 +359,7 @@ h6 {
     #search .btn {
         margin-top: 15px;
     }
-    
+
     #search .kid {
         margin-top: 15px;
     }
@@ -393,7 +396,7 @@ h6 {
         font-size: 40px;
         font-weight: 700;
     }
-    
+
     #welcome p {
         font-size: 18px;
         font-weight: 500;
@@ -407,7 +410,7 @@ h6 {
         font-weight: 600;
         letter-spacing: 0;
     }
-    
+
     #welcome p {
         font-size: 16px;
         font-weight: 400;
@@ -787,7 +790,7 @@ h6 {
     transition: 0.5s;
 }
 
-@media (max-width: 575.98px) {   
+@media (max-width: 575.98px) {
     #rooms .room-icon li {
         width: 20px;
         height: 20px;
@@ -999,7 +1002,7 @@ h6 {
     padding: 12px 30px;
     background-color: transparent;
     color: #666;
-    font-size: 16px; 
+    font-size: 16px;
 }
 
 #subscribe .subscribe-form input[type="email"]:focus {
@@ -1009,16 +1012,16 @@ h6 {
 
 @media only screen and (max-width: 479px) {
     #subscribe .subscribe-form input[type="email"] {
-        text-align: center; 
-    } 
+        text-align: center;
+    }
 }
 
 input::-webkit-input-placeholder,
 input:-moz-placeholder,
 input::-moz-placeholder,
 input:-ms-input-placeholder,
-input::-ms-input-placeholder { 
-    color: white; 
+input::-ms-input-placeholder {
+    color: white;
 }
 
 #subscribe .subscribe-form button {
@@ -1055,7 +1058,7 @@ input::-ms-input-placeholder {
         position: static;
         margin-top: 15px;
         width: 100%;
-    } 
+    }
 }
 
 /* ================================================= */
@@ -1233,7 +1236,8 @@ input::-ms-input-placeholder {
     border-radius: 0;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
     textarea:focus,
     input:focus {
         font-size: 16px;
@@ -1288,7 +1292,7 @@ input::-ms-input-placeholder {
     #login .container .col-md-6:first-child {
         margin-bottom: 30px;
     }
-} 
+}
 
 #login .login-form {
     position: relative;
@@ -1314,7 +1318,7 @@ input::-ms-input-placeholder {
     border-radius: 0;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
     input:focus {
         font-size: 16px;
         background: #fff;
