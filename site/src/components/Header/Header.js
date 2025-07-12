@@ -12,12 +12,20 @@ export default function Header() {
   const loggedAdmin = (
     <>
       <li className="active"><Link to="/create">Създаване на стая</Link></li>
+      <li className="active"><Link to="/create">Резервации</Link></li>
       <li className="active"><Link to="/logout">Изход</Link></li>
     </>
   );
 
   const unloggedAdmin = (
-    <li><Link to="/login">Влизане</Link></li>
+    <>
+      <li><Link to="/about">За нас</Link></li>
+      <li><Link to="/room">Стаи</Link></li>
+      <li><Link to="/amenities">Удобства</Link></li>
+      <li><Link to="/booking">Резервирайте</Link></li>
+      <li><Link to="/contact">Контакти</Link></li>
+      <li><Link to="/login">Влизане</Link></li>
+    </>
   );
   return (
     <header id="header">
@@ -33,11 +41,7 @@ export default function Header() {
       <nav className={`main-menu top-menu ${menuOpen ? 'open' : ''}`}>
         <ul>
           <li className="active"><Link to="/">Начало</Link></li>
-          <li><Link to="/about">За нас</Link></li>
-          <li><Link to="/room">Стаи</Link></li>
-          <li><Link to="/amenities">Удобства</Link></li>
-          <li><Link to="/booking">Резервирайте</Link></li>
-          <li><Link to="/contact">Контакти</Link></li>
+
           {Boolean(admin.email) ? loggedAdmin : unloggedAdmin}
         </ul>
       </nav>
