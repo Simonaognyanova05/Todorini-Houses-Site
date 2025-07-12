@@ -80,14 +80,6 @@ export default function Rooms() {
                                         <div><img src="img/room-slider/room-5.jpg" /></div>
                                         <div><img src="img/room-slider/room-6.jpg" /></div>
                                     </div>
-                                    <div class="port-slider-nav">
-                                        <div><img src="img/room-slider/room-1.jpg" /></div>
-                                        <div><img src="img/room-slider/room-2.jpg" /></div>
-                                        <div><img src="img/room-slider/room-3.jpg" /></div>
-                                        <div><img src="img/room-slider/room-4.jpg" /></div>
-                                        <div><img src="img/room-slider/room-5.jpg" /></div>
-                                        <div><img src="img/room-slider/room-6.jpg" /></div>
-                                    </div>
                                 </div>
                                 <div class="col-12">
                                     <h2>Lorem ipsum dolor</h2>
