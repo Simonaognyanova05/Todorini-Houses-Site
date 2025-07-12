@@ -7,7 +7,7 @@ import Amenities from "./components/Amenities";
 import Booking from "./components/Booking";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
-import Rooms from "./components/Rooms";
+import Rooms from "./components/Rooms/Rooms";
 import Registration from "./components/Registration";
 import Logout from "./components/Logout";
 import CreateRoom from "./components/CreateRoom";
