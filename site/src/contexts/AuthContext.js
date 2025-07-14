@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { useState, createContext, useContext } from 'react';
 
 export const AuthContext = createContext();
 
@@ -8,36 +8,40 @@ const initialState = {
 };
 
 export const AuthProvider = ({ children }) => {
-    const [admin, setAdmin] = useState(() => {
-        const storedAdmin = localStorage.getItem('admin');
-        return storedAdmin ? JSON.parse(storedAdmin) : initialState;
+    const [user, setUser] = useState(() => {
+        const storedUser = localStorage.getItem('user');
+        try {
+            return storedUser ? JSON.parse(storedUser) : initialState;
+        } catch (error) {
+            console.error('Invalid user data in localStorage', error);
+            return initialState; 
+        }
     });
 
-    useEffect(() => {
-        if (admin._id) {
-            localStorage.setItem('admin', JSON.stringify(admin));
-        } else {
-            localStorage.removeItem('admin');
-        }
-    }, [admin]);
+    const onRegister = (authData) => {
+        console.log('User registered:', authData);
+        setUser(authData);
+        localStorage.setItem('user', JSON.stringify(authData)); 
+    };
 
     const onLogin = (authData) => {
-        setAdmin(authData);
+        console.log('User logged in:', authData);
+        setUser(authData);
+        localStorage.setItem('user', JSON.stringify(authData)); 
     };
 
     const onLogout = () => {
-        setAdmin(initialState);
+        setUser(initialState); 
+        localStorage.removeItem('user'); 
     };
 
     return (
-        <AuthContext.Provider value={{ admin, onLogin, onLogout }}>
+        <AuthContext.Provider value={{ user, onRegister, onLogout, onLogin }}>
             {children}
         </AuthContext.Provider>
     );
-}
+};
 
 export const useAuth = () => {
-    let authData = useContext(AuthContext);
-
-    return authData;
+    return useContext(AuthContext);
 }

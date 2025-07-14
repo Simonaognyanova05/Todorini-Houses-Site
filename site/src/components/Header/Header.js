@@ -5,7 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { admin } = useAuth();
+  const { user } = useAuth();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -42,7 +42,7 @@ export default function Header() {
         <ul>
           <li className="active"><Link to="/">Начало</Link></li>
 
-          {Boolean(admin.email) ? loggedAdmin : unloggedAdmin}
+          {Boolean(user.email) ? loggedAdmin : unloggedAdmin}
         </ul>
       </nav>
     </header>

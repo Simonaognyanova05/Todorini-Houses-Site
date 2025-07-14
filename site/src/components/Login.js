@@ -12,15 +12,14 @@ export default function Login() {
         const formData = new FormData(e.currentTarget);
         const { email, password } = Object.fromEntries(formData);
 
-        let result = await login(email, password);
-        if(result.status === 200){
-            alert("Влизането е успешно!"); 
-            onLogin(result.user);
+        try {
+            const user = await login(email, password);
+            onLogin(user);
             navigate('/');
-        }else{
-            alert("Възникна грешка. Моля, опитайте отново по-късно!"); 
+        } catch (err) {
+            alert('Error'); // Показваме реалната грешка
         }
-    }
+    };
     return (
         <div id="login">
             <div class="container">

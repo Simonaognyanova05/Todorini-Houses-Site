@@ -4,19 +4,17 @@ import { auth } from "../config/firebase";
 export async function login(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        return { status: 200, user: userCredential.user }; // Връщаме само потребителя
+        return userCredential.user; // Връщаме само потребителя
     } catch (error) {
         console.error("Firebase Auth Error Code:", error.code);
         console.error("Firebase Auth Error Message:", error.message);
 
         if (error.code === "auth/user-not-found") {
-            alert("Потребителят не съществува!");
+            throw new Error("Потребителят не съществува!");
         } else if (error.code === "auth/wrong-password") {
-            alert("Грешна парола!");
-
+            throw new Error("Грешна парола!");
         } else {
-            alert("Възникна грешка при влизане!");
+            throw new Error("Възникна грешка при влизане!");
         }
-        return { status: 400, user: '' };
     }
 }
