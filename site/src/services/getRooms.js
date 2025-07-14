@@ -1,7 +1,7 @@
 import { db } from '../config/firebase';
 import { collection, query, getDocs } from 'firebase/firestore';
 
-export async function getProducts() {
+export async function getRooms() {
     try {
         const q = query(collection(db, "rooms"));
         const querySnapshot = await getDocs(q);
