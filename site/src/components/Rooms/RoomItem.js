@@ -47,8 +47,6 @@ export default function RoomItem({ room }) {
                             <h3>Цени</h3>
                             <h1>{room.priceLv} лв.</h1>
                             <h1>{room.priceEuro}€</h1>
-
-                            <a href="#">Резервирай</a>
                         </div>
                     </div>
                 </div>
