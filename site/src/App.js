@@ -11,6 +11,7 @@ import Rooms from "./components/Rooms/Rooms";
 import Registration from "./components/Registration";
 import Logout from "./components/Logout";
 import CreateRoom from "./components/CreateRoom";
+import Reservations from "./components/Reservations";
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/room" element={<Rooms />} />
+        <Route path="/bookings" element={<Reservations />} />
         <Route path="/create" element={<CreateRoom />} />
 
 

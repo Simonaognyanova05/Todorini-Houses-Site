@@ -1,5 +1,24 @@
+import {useNavigate} from 'react-router-dom';
+import { book } from '../services/book';
+
+
 export default function Booking() {
-    
+    const navigate = useNavigate();
+
+    const createHandler = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+        const {fname, lname, mobile, email, date1, date2, guests, requirements} = Object.fromEntries(formData);
+
+        let result = await book(fname, lname, mobile, email, date1, date2, guests, requirements);
+        if(result.status == 200){
+            alert("Резервацията е създадена успешно!");
+            navigate('/booking');
+        }else{
+            alert("Възникна грешка, моля, опитайте по-късно!");
+        }
+    }
     return (
         <>
             <div id="booking">
@@ -7,14 +26,14 @@ export default function Booking() {
                     <div class="section-header">
                         <h2>Направете резервация</h2>
                         <p>
-                            От тук може да направите резервация. <br /> <b>ВАЖНО!!!</b> Ако не сте записали желаните дати в менюто "Стаи", е възможно да няма свободни стаи от типа, който искате!
+                            От тук може да направите резервация. <br /> <b>ВАЖНО!!!</b> След като направите резервацията, ще Ви бъде изпратен имейл за потвърждение!
                         </p>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="booking-form">
                                 <div id="success"></div>
-                                <form name="sentMessage" id="bookingForm" novalidate="novalidate">
+                                <form name="sentMessage" id="bookingForm" novalidate="novalidate" onSubmit={createHandler}>
                                     <div class="form-row">
                                         <div class="control-group col-md-6">
                                             <label>Име: </label>

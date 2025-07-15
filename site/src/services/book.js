@@ -1,7 +1,7 @@
 import { db } from '../config/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
-export async function create(fname, lname, mobile, email, date1, date2, guests, requirements) {
+export async function book(fname, lname, mobile, email, date1, date2, guests, requirements) {
     try {
         const docRef = await addDoc(collection(db, "bookings"), {
             fname, lname, mobile, email, date1, date2, guests, requirements,
