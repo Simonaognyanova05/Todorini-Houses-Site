@@ -1,9 +1,9 @@
 import { db } from '../config/firebase';
 import { collection, query, getDocs } from 'firebase/firestore';
 
-export async function getRooms() {
+export async function getReservations() {
     try {
-        const q = query(collection(db, "rooms"));
+        const q = query(collection(db, "bookings"));
         const querySnapshot = await getDocs(q);
 
         const products = [];
