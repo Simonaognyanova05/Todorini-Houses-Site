@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <header id="header">
       <Link to="/" className="logo">
-        <img src="/img/logo.jpg" alt="logo" />
+        <img src="/img/logo1.jpg" alt="logo" />
       </Link>
       <div className="phone"><i className="fa fa-phone"></i>0887349901</div>
 

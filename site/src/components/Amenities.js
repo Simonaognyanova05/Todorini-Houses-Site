@@ -3,9 +3,9 @@ export default function Amenities() {
         <div id="amenities">
             <div class="container">
                 <div class="section-header">
-                    <h2>Amenities & Services</h2>
+                    <h2>Галерия</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in mi libero. Quisque convallis, enim at venenatis tincidunt.
+                        Това са снимки от нашата механа и къща за гости.
                     </p>
                 </div>
                 <div class="row">
