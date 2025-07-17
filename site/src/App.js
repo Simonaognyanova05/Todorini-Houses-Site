@@ -12,6 +12,7 @@ import Registration from "./components/Registration";
 import Logout from "./components/Logout";
 import CreateRoom from "./components/CreateRoom";
 import Reservations from "./components/Reservations";
+import Messages from "./components/Messages";
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/registration" element={<Registration />} />
         <Route path="/room" element={<Rooms />} />
         <Route path="/bookings" element={<Reservations />} />
+        <Route path="/messages" element={<Messages />} />
         <Route path="/create" element={<CreateRoom />} />
 
 
