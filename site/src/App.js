@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header/Header";
 import Home from "./components/Home";
 import About from "./components/About";
-import Amenities from "./components/Amenities";
+import Amenities from "./components/Amenities/Amenities";
 import Booking from "./components/Booking";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
@@ -20,10 +20,11 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
+      <Routes basename="/">
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/amenities" element={<Amenities />} />
+        <Route path="/:type" element={<Amenities />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
