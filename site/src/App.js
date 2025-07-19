@@ -13,6 +13,7 @@ import Logout from "./components/Logout";
 import CreateRoom from "./components/CreateRoom";
 import Reservations from "./components/Reservations";
 import Messages from "./components/Messages";
+import Edit from "./components/Edit";
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/amenities" element={<Amenities />} />
         <Route path="/:type" element={<Amenities />} />
+        <Route path="/room/:roomId" element={<Edit />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
@@ -34,9 +36,6 @@ function App() {
         <Route path="/bookings" element={<Reservations />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/create" element={<CreateRoom />} />
-
-
-
       </Routes>
 
       <Footer />
