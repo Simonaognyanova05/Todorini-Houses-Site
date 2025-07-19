@@ -19,7 +19,7 @@ export default function Reservations() {
     };
 
     const handleDelete = async (id) => {
-        const confirm = window.confirm("Сигурни ли сте, че искате да изтриете резервацията?");
+        const confirm = window.confirm("Сигурни ли сте, че резервацията е изпълнена?");
         if (!confirm) return;
 
         try {
@@ -141,7 +141,7 @@ export default function Reservations() {
                                         </button>
                                         <button
                                             className="btn btn-sm btn-outline-success"
-                                            onClick={() => alert("Маркирано като изпълнено")}
+                                            onClick={() => handleDelete(res.id)}
                                         >
                                             Маркирай като изпълнена
                                         </button>
