@@ -1,4 +1,4 @@
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { book } from '../services/book';
 
 
@@ -9,13 +9,13 @@ export default function Booking() {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
-        const {fname, lname, mobile, email, date1, date2, guests, requirements} = Object.fromEntries(formData);
+        const { fname, lname, mobile, email, date1, date2, guests, type, requirements } = Object.fromEntries(formData);
 
-        let result = await book(fname, lname, mobile, email, date1, date2, guests, requirements);
-        if(result.status == 200){
+        let result = await book(fname, lname, mobile, email, date1, date2, guests, type, requirements);
+        if (result.status == 200) {
             alert("Резервацията е създадена успешно!");
             navigate('/booking');
-        }else{
+        } else {
             alert("Възникна грешка, моля, опитайте по-късно!");
         }
     }
@@ -32,7 +32,6 @@ export default function Booking() {
                     <div class="row">
                         <div class="col-12">
                             <div class="booking-form">
-                                <div id="success"></div>
                                 <form name="sentMessage" id="bookingForm" novalidate="novalidate" onSubmit={createHandler}>
                                     <div class="form-row">
                                         <div class="control-group col-md-6">
@@ -78,6 +77,11 @@ export default function Booking() {
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                         </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <label>Тип стая:</label>
+                                        <input type="text" class="form-control" id="requirements" name="type" placeholder="Една обща/Две отделни" required="required" data-validation-required-message="Моля, въведете Вашите допълнителни изисквания!" />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="control-group">

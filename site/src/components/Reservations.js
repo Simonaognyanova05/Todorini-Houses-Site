@@ -119,6 +119,7 @@ export default function Reservations() {
                                         <p className="card-text mb-2"><strong>Имейл:</strong> {res.email || "—"}</p>
                                         <p className="card-text mb-2"><strong>Телефон:</strong> {res.mobile}</p>
                                         <p className="card-text mb-2"><strong>Брой хора в стая:</strong> {res.guests}</p>
+                                        <p className="card-text mb-2"><strong>Тип стая:</strong> {res.type}</p>
                                         <p className="card-text mb-2"><strong>Дата на настаняване:</strong> {formatDate(res.date1)}</p>
                                         <p className="card-text mb-2"><strong>Дата на напускане:</strong> {formatDate(res.date2)}</p>
                                         {res.requirements && (
