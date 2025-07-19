@@ -9,9 +9,9 @@ export default function Edit() {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
-        const data = Object.fromEntries(formData); // това е обект със стойностите
+        const data = Object.fromEntries(formData); 
 
-        const result = await update(roomId, data); // подаваме като обект
+        const result = await update(roomId, data);
 
         if (result.status === 200) {
             alert(result.message);

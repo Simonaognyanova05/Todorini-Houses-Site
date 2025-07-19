@@ -1,9 +1,11 @@
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function RoomItem({ room }) {
     const navigate = useNavigate();
+    const { user } = useAuth();
 
     const handleEdit = () => {
         navigate(`/room/${room.id}`);
@@ -16,12 +18,29 @@ export default function RoomItem({ room }) {
         try {
             await deleteDoc(doc(db, "rooms", room.id));
             alert("Стаята беше успешно изтрита.");
-            window.location.reload(); 
+            window.location.reload();
         } catch (error) {
             console.error("Грешка при изтриване:", error);
             alert("Възникна грешка при изтриването на стаята.");
         }
     };
+
+    const loggedUser = (
+        <div className="mt-3 d-flex gap-2">
+            <button
+                className="btn btn-sm btn-outline-primary"
+                onClick={handleEdit}
+            >
+                Редактирай
+            </button>
+            <button
+                className="btn btn-sm btn-outline-danger"
+                onClick={handleDelete}
+            >
+                Изтрий
+            </button>
+        </div>
+    );
 
     return (
         <div className="row">
@@ -70,20 +89,7 @@ export default function RoomItem({ room }) {
                                 <li className="icon-10"></li>
                             </ul>
 
-                            <div className="mt-3 d-flex gap-2">
-                                <button
-                                    className="btn btn-sm btn-outline-primary"
-                                    onClick={handleEdit}
-                                >
-                                    Редактирай
-                                </button>
-                                <button
-                                    className="btn btn-sm btn-outline-danger"
-                                    onClick={handleDelete}
-                                >
-                                    Изтрий
-                                </button>
-                            </div>
+                            { Boolean(user.email) ? loggedUser : ''}
                         </div>
                     </div>
 
