@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function RoomModalItem({ x: room }) {
     return (
         <div id={`modal-room-${room.id}`} class="modal fade" tabindex="-1" role="dialog">
@@ -24,7 +26,7 @@ export default function RoomModalItem({ x: room }) {
                                     {room.description}
                                 </p>
                                 <div class="modal-link">
-                                    <a href="#">Резервирай</a>
+                                    <a href="/booking">Резервирай</a>
                                 </div>
                             </div>
                         </div>
