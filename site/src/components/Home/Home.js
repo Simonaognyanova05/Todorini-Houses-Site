@@ -1,3 +1,5 @@
+import './Home.css';
+
 export default function Home() {
     return (
         <>
@@ -11,14 +13,14 @@ export default function Home() {
                     <div class="carousel-item active">
                         <img src="img/header-picture.jpg" alt="Royal Hotel" />
                         <div class="carousel-caption">
-                            <h1 class="animated fadeInRight">Къщи за гости "Тодорини къщи"</h1>
+                            <h1 class="animated fadeInRight">Семеен хотел "Тодорини къщи"</h1>
                         </div>
                     </div>
 
                     <div class="carousel-item">
                         <img src="img/bigfotos23.jpg" alt="Royal Hotel" />
                         <div class="carousel-caption">
-                            <h1 class="animated fadeInLeft">Механа "Под крушата"</h1>
+                            <h1 class="animated fadeInLeft">Механа "Под старата круша"</h1>
                         </div>
                     </div>
 
@@ -41,7 +43,7 @@ export default function Home() {
             </div>
             <div id="welcome">
                 <div class="container">
-                    <h3>Добре дошли в "Тодорини къщи" и механа "Под крушата"</h3>
+                    <h3>Добре дошли в "Тодорини къщи" и механа "Под старата крушата"</h3>
                     <p>Насладете се на тишината, уюта и автентичната българска атмосфера в сърцето на природата! Тук ще откриете спокойствие, гостоприемство и възможност да се докоснете до истинската българска традиция.</p>
                     <a href="#">Резервирайте</a>
                 </div>
