@@ -1,4 +1,4 @@
-import { Form, useNavigate } from 'react-router-dom';
+import { Form, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { login } from '../services/login';
 
@@ -26,7 +26,7 @@ export default function Login() {
                 <div class="section-header">
                     <h2>Влизане</h2>
                     <p>
-                        От тук може да влезете във вашия профил като администратор.
+                        От тук може да влезете във вашия профил като администратор. Въведете Вашия имейл и ние ще Ви изпратим инструкции как да промените паролата си.
                     </p>
                 </div>
                 <div class="row">
@@ -42,7 +42,13 @@ export default function Login() {
                                         <label>Парола</label>
                                         <input type="password" class="form-control" name="password" required="required" />
                                     </div>
+
+
                                 </div>
+                                <div>
+                                    <Link to='/forgotten'>Забравена парола</Link>
+                                </div>
+                                <br />
                                 <div class="button"><button type="submit">Влизане</button></div>
                             </form>
                         </div>

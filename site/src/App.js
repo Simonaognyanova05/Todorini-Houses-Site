@@ -14,6 +14,7 @@ import CreateRoom from "./components/CreateRoom";
 import Reservations from "./components/Reservations";
 import Messages from "./components/Messages";
 import Edit from "./components/Edit";
+import ForgottenPassword from "./components/ForgottenPassword";
 
 
 
@@ -24,6 +25,7 @@ function App() {
       <Routes basename="/">
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/forgotten" element={<ForgottenPassword />} />
         <Route path="/amenities" element={<Amenities />} />
         <Route path="/:type" element={<Amenities />} />
         <Route path="/room/:roomId" element={<Edit />} />
