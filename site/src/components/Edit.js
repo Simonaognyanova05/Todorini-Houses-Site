@@ -13,7 +13,7 @@ export default function Edit() {
             .then(res => {
                 setRoom(res);
             })
-    })
+    }, [roomId])
     const editHandler = async (e) => {
         e.preventDefault();
 
