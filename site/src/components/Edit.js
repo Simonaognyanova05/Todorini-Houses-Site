@@ -1,15 +1,24 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { update } from "../services/update";
+import { useEffect, useState } from "react";
+import { getRoomById } from "../services/getRoomById";
 
 export default function Edit() {
     const navigate = useNavigate();
     const { roomId } = useParams();
-    
+    const [room, setRoom] = useState('');
+
+    useEffect(() => {
+        getRoomById(roomId)
+            .then(res => {
+                setRoom(res);
+            })
+    })
     const editHandler = async (e) => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
-        const data = Object.fromEntries(formData); 
+        const data = Object.fromEntries(formData);
 
         const result = await update(roomId, data);
 
@@ -37,51 +46,51 @@ export default function Edit() {
                                 <div class="form-row">
                                     <div class="control-group col-sm-6">
                                         <label>Тип</label>
-                                        <input type="text" class="form-control" name="type" required="required" />
+                                        <input type="text" class="form-control" name="type" value={room.type} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Описание</label>
-                                        <input type="text" class="form-control" name="description" required="required" />
+                                        <input type="text" class="form-control" name="description" value={room.description} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Размер на стаята</label>
-                                        <input type="text" class="form-control" name="size" required="required" />
+                                        <input type="text" class="form-control" name="size" value={room.size} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Брой легла</label>
-                                        <input type="text" class="form-control" name="beds" required="required" />
+                                        <input type="text" class="form-control" name="beds" value={room.beds} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Цена в лв.</label>
-                                        <input type="text" class="form-control" name="priceLv" required="required" />
+                                        <input type="text" class="form-control" name="priceLv" value={room.priceLv} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Цена в евро</label>
-                                        <input type="text" class="form-control" name="priceEuro" required="required" />
+                                        <input type="text" class="form-control" name="priceEuro" value={room.priceEuro} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Снимка 1</label>
-                                        <input type="text" class="form-control" name="img1" required="required" />
+                                        <input type="text" class="form-control" name="img1" value={room.img1} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Снимка 2</label>
-                                        <input type="text" class="form-control" name="img2" required="required" />
+                                        <input type="text" class="form-control" name="img2" value={room.img2} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Снимка 3</label>
-                                        <input type="text" class="form-control" name="img3" required="required" />
+                                        <input type="text" class="form-control" name="img3" value={room.img3} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Снимка 4</label>
-                                        <input type="text" class="form-control" name="img4" required="required" />
+                                        <input type="text" class="form-control" name="img4" value={room.img4} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Снимка 5</label>
-                                        <input type="text" class="form-control" name="img5" required="required" />
+                                        <input type="text" class="form-control" name="img5" value={room.img5} required="required" />
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Снимка 6</label>
-                                        <input type="text" class="form-control" name="img6" required="required" />
+                                        <input type="text" class="form-control" name="img6" value={room.img6} required="required" />
                                     </div>
                                 </div>
                                 <div class="button"><button type="submit">Редактиране</button></div>
