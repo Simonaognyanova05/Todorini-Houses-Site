@@ -22,25 +22,25 @@ export default function Login() {
     };
     return (
         <div id="login">
-            <div class="container">
-                <div class="section-header">
+            <div className="container">
+                <div className="section-header">
                     <h2>Влизане</h2>
                     <p>
                         От тук може да влезете във вашия профил като администратор. Въведете Вашия имейл и ние ще Ви изпратим инструкции как да промените паролата си.
                     </p>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="login-form">
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="login-form">
                             <form onSubmit={loginHandler}>
-                                <div class="form-row">
-                                    <div class="control-group col-sm-6">
+                                <div className="form-row">
+                                    <div className="control-group col-sm-6">
                                         <label>Имейл</label>
-                                        <input type="email" class="form-control" name="email" required="required" />
+                                        <input type="email" className="form-control" name="email" required="required" />
                                     </div>
-                                    <div class="control-group col-sm-6">
+                                    <div className="control-group col-sm-6">
                                         <label>Парола</label>
-                                        <input type="password" class="form-control" name="password" required="required" />
+                                        <input type="password" className="form-control" name="password" required="required" />
                                     </div>
 
 
@@ -49,7 +49,7 @@ export default function Login() {
                                     <Link to='/forgotten'>Забравена парола</Link>
                                 </div>
                                 <br />
-                                <div class="button"><button type="submit">Влизане</button></div>
+                                <div className="button"><button type="submit">Влизане</button></div>
                             </form>
                         </div>
                     </div>

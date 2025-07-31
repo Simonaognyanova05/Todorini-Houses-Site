@@ -26,38 +26,38 @@ export default function Registration() {
     return (
         <>
             <div id="login">
-                <div class="container">
-                    <div class="section-header">
+                <div className="container">
+                    <div className="section-header">
                         <h2>Регистрация</h2>
                         <p>
                             Тук можете да създадете потребител със същите права като Вашите.
                         </p>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="login-form">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="login-form">
                                 <form onSubmit={registerHandler}>
-                                    <div class="form-row">
-                                        <div class="control-group col-sm-6">
+                                    <div className="form-row">
+                                        <div className="control-group col-sm-6">
                                             <label>Име и фамилия</label>
-                                            <input type="text" class="form-control" name="names" required="required" />
+                                            <input type="text" className="form-control" name="names" required="required" />
                                         </div>
-                                        <div class="control-group col-sm-6">
+                                        <div className="control-group col-sm-6">
                                             <label>Имейл</label>
-                                            <input type="email" class="form-control" name="email" required="required" />
+                                            <input type="email" className="form-control" name="email" required="required" />
                                         </div>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="control-group col-sm-6">
+                                    <div className="form-row">
+                                        <div className="control-group col-sm-6">
                                             <label>Парола</label>
-                                            <input type="password" class="form-control" name="password" required="required" />
+                                            <input type="password" className="form-control" name="password" required="required" />
                                         </div>
-                                        <div class="control-group col-sm-6">
+                                        <div className="control-group col-sm-6">
                                             <label>Потвърдете паролата</label>
-                                            <input type="password" class="form-control" name="rePass" required="required" />
+                                            <input type="password" className="form-control" name="rePass" required="required" />
                                         </div>
                                     </div>
-                                    <div class="button"><button type="submit">Регистрация</button></div>
+                                    <div className="button"><button type="submit">Регистрация</button></div>
                                 </form>
                             </div>
                         </div>

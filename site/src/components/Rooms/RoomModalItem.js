@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 
 export default function RoomModalItem({ x: room }) {
     return (
-        <div id={`modal-room-${room.id}`} class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div id={`modal-room-${room.id}`} className="modal fade" tabindex="-1" role="dialog">
+            <div className="modal-dialog modal-lg">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <button type="button" className="close" data-dismiss="modal">&times;</button>
                     </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="port-slider">
+                    <div className="modal-body">
+                        <div className="row">
+                            <div className="col-12">
+                                <div className="port-slider">
                                     <div><img src={room.img1} /></div>
                                     <div><img src={room.img2} /></div>
                                     <div><img src={room.img3} /></div>
@@ -20,12 +20,12 @@ export default function RoomModalItem({ x: room }) {
                                     <div><img src={room.img6} /></div>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div className="col-12">
                                 <h2>{room.type}</h2>
                                 <p>
                                     {room.description}
                                 </p>
-                                <div class="modal-link">
+                                <div className="modal-link">
                                     <a href="/booking">Резервирай</a>
                                 </div>
                             </div>

@@ -25,26 +25,26 @@ export default function ForgottenPassword() {
 
     return (
         <div id="login">
-            <div class="container">
-                <div class="section-header">
+            <div className="container">
+                <div className="section-header">
                     <h2>Забравена парола</h2>
                     <p>
                         От тук можете да промените паролата си.
                     </p>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="login-form">
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="login-form">
                             <form onSubmit={handleSubmit}>
-                                <div class="form-row">
-                                    <div class="control-group col-sm-6">
+                                <div className="form-row">
+                                    <div className="control-group col-sm-6">
                                         <label>Имейл</label>
-                                        <input type="email" class="form-control" name="email" value={email}
+                                        <input type="email" className="form-control" name="email" value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             required />
                                     </div>
                                 </div>
-                                <div class="button"><button type="submit">Изпрати имейл</button></div>
+                                <div className="button"><button type="submit">Изпрати имейл</button></div>
                             </form>
                         </div>
                     </div>

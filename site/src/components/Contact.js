@@ -20,60 +20,60 @@ export default function Contact() {
     }
     return (
         <div id="contact">
-            <div class="container">
-                <div class="section-header">
+            <div className="container">
+                <div className="section-header">
                     <h2>Контакти</h2>
                     <p>
                         Може да се свържете с нас като попълните формата по-долу или използвате имейл адреса и телефонния номер.
                     </p>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row contact-info">
-                            <div class="col-md-4">
-                                <div class="info-item">
-                                    <p><i class="fa fa-map-marker"></i>ул. "Любен Каравелов" 22</p>
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="row contact-info">
+                            <div className="col-md-4">
+                                <div className="info-item">
+                                    <p><i className="fa fa-map-marker"></i>ул. "Любен Каравелов" 22</p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="info-item">
-                                    <p><i class="fa fa-envelope"></i> <a href="mailto:contacts@todorinikashti.com">contacts@todorinikashti.com</a></p>
+                            <div className="col-md-4">
+                                <div className="info-item">
+                                    <p><i className="fa fa-envelope"></i> <a href="mailto:contacts@todorinikashti.com">contacts@todorinikashti.com</a></p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="info-item">
-                                    <p><i class="fa fa-phone"></i><a href="tel:+1 234 567 8900">0887349901, 0887733430</a></p>
+                            <div className="col-md-4">
+                                <div className="info-item">
+                                    <p><i className="fa fa-phone"></i><a href="tel:+1 234 567 8900">0887349901, 0887733430</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="contact-form">
+                    <div className="col-md-12">
+                        <div className="contact-form">
                             <div id="success"></div>
                             <form name="sentMessage" id="contactForm" novalidate="novalidate" onSubmit={sendHandler}>
-                                <div class="form-row">
-                                    <div class="control-group col-sm-6">
+                                <div className="form-row">
+                                    <div className="control-group col-sm-6">
                                         <label>Вашите имена: </label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Петър Иванов" required="required" data-validation-required-message="Please enter your name" />
-                                        <p class="help-block text-danger"></p>
+                                        <input type="text" className="form-control" id="name" name="name" placeholder="Петър Иванов" required="required" data-validation-required-message="Please enter your name" />
+                                        <p className="help-block text-danger"></p>
                                     </div>
-                                    <div class="control-group col-sm-6">
+                                    <div className="control-group col-sm-6">
                                         <label>Имейл</label>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" required="required" data-validation-required-message="Please enter your email" />
-                                        <p class="help-block text-danger"></p>
+                                        <input type="email" className="form-control" id="email" name="email" placeholder="email@example.com" required="required" data-validation-required-message="Please enter your email" />
+                                        <p className="help-block text-danger"></p>
                                     </div>
                                 </div>
-                                <div class="control-group">
+                                <div className="control-group">
                                     <label>Тема</label>
-                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Детско" required="required" data-validation-required-message="Please enter a subject" />
-                                    <p class="help-block text-danger"></p>
+                                    <input type="text" className="form-control" id="subject" name="subject" placeholder="Детско" required="required" data-validation-required-message="Please enter a subject" />
+                                    <p className="help-block text-danger"></p>
                                 </div>
-                                <div class="control-group">
+                                <div className="control-group">
                                     <label>Съобщение:</label>
-                                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Предлагате ли детско легло?" required="required" data-validation-required-message="Please enter your message"></textarea>
-                                    <p class="help-block text-danger"></p>
+                                    <textarea className="form-control" id="message" name="message" rows="5" placeholder="Предлагате ли детско легло?" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                    <p className="help-block text-danger"></p>
                                 </div>
-                                <div class="button"><button type="submit" id="sendMessageButton">Изпрати съобщенето</button></div>
+                                <div className="button"><button type="submit" id="sendMessageButton">Изпрати съобщенето</button></div>
                             </form>
                         </div>
                     </div>
