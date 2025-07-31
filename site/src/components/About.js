@@ -11,7 +11,7 @@ export default function About() {
                 <div class="row">
                     <div class="col-md-6 img-cols">
                         <div class="img-col">
-                            <img class="img-fluid" src="img/bigfotos3.jpg" />
+                            <img class="img-fluid" src="/img/bigfotos3.jpg" />
                         </div>
                     </div>
                     <div class="col-md-6 content-cols">
@@ -30,20 +30,21 @@ export default function About() {
                 <div class="row">
                     <div class="col-md-6 img-cols d-block d-md-none">
                         <div class="img-col">
-                            <img class="img-fluid" src="img/collage.png" />
+                            <img class="img-fluid" src="https://i.imgur.com/pq3GuHV.jpeg" />
                         </div>
                     </div>
                     <div class="col-md-6 content-cols">
                         <div class="content-col">
                             <h3>Нашите предложения</h3>
                             <p>
-                                На разположение на гостите са - механа с българска кухня, релакс център с парна баня, вътрешен басейн - джакузи, хигромасажна вана и масажен салон. Насред слънчевия двор се намира външен басейн с размери 8/4/1.2м и температура на водата 30оС /сезонен/.
+                                На разположение на гостите в хотела са: ресторант с българска кухня, релакс център с парна баня, вътрешен басейн с джакузи, хидромасажна вана и масажен салон. В слънчевия двор се намира външен сезонен басейн с размери 8/4/1.2 м и температура на водата 30°C.
+                                Освен това, в отделна локация, гостите могат да посетят и традиционната механа "Под старата круша", която предлага автентична българска атмосфера и домашно приготвени ястия.
                             </p>
                         </div>
                     </div>
                     <div class="col-md-6 img-cols d-none d-md-block">
                         <div class="img-col">
-                            <img class="img-fluid" src="img/bigfotos18.jpg" />
+                            <img class="img-fluid" src="https://i.imgur.com/pq3GuHV.jpeg" />
                         </div>
                     </div>
                 </div>
@@ -53,14 +54,14 @@ export default function About() {
                 <div class="row">
                     <div class="col-md-6 img-cols">
                         <div class="img-col">
-                            <img class="img-fluid" src="img/bigfotos24.jpg" />
+                            <img class="img-fluid" src="https://i.imgur.com/qOK4Zea.jpeg" />
                         </div>
                     </div>
                     <div class="col-md-6 content-cols">
                         <div class="content-col">
-                            <h3>За кого са подходящи къщите?</h3>
+                            <h3>За кого е подходящ хотелът?</h3>
                             <p>
-                                Къщите са подходящи за провеждане на зелени училища, семинари, стажове, фирмени и тийм билдинг празненства.
+                                Хотелът е подходящ за провеждане на зелени училища, семинари, стажове, фирмени и тийм билдинг празненства.
                             </p>
                         </div>
                     </div>

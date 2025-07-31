@@ -4,7 +4,7 @@ import { update } from "../services/update";
 export default function Edit() {
     const navigate = useNavigate();
     const { roomId } = useParams();
-
+    
     const editHandler = async (e) => {
         e.preventDefault();
 

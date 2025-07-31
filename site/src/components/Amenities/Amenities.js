@@ -79,11 +79,11 @@ export default function Gallery() {
             <br />
             <div className="section-header">
                 <h2>Галерия</h2>
-                <p>Това са снимки от нашата механа и къща за гости.</p>
+                <p>Това са снимки от нашия хотел и нашата механа.</p>
             </div>
 
             <nav className="galleryNav">
-                <Link to="/guestHouseImages">Къща за гости</Link>
+                <Link to="/guestHouseImages">Хотел</Link>
                 <Link to="/spa">Спа</Link>
                 <Link to="/mehana">Механа</Link>
                 <Link to="/menu">Меню</Link>

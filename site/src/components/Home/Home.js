@@ -1,14 +1,11 @@
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 export default function Home() {
     return (
         <>
             <div id="headerSlider" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#headerSlider" data-slide-to="0" class="active"></li>
-                    <li data-target="#headerSlider" data-slide-to="1"></li>
-                    <li data-target="#headerSlider" data-slide-to="2"></li>
-                </ol>
+            
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="img/header-picture.jpg" alt="Royal Hotel" />
@@ -45,7 +42,7 @@ export default function Home() {
                 <div class="container">
                     <h3>Добре дошли в "Тодорини къщи" и механа "Под старата крушата"</h3>
                     <p>Насладете се на тишината, уюта и автентичната българска атмосфера в сърцето на природата! Тук ще откриете спокойствие, гостоприемство и възможност да се докоснете до истинската българска традиция.</p>
-                    <a href="#">Резервирайте</a>
+                    <Link to="/booking">Резервирайте</Link>
                 </div>
             </div>
             <div id="modal-id" class="modal fade" tabindex="-1" role="dialog">
