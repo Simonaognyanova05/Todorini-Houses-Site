@@ -4,7 +4,7 @@ import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../config/firebase";
 import emailjs from "emailjs-com";
 
-emailjs.init("UGtKXqGnR4WTiD8xP"); 
+emailjs.init("UGtKXqGnR4WTiD8xP");
 
 export default function Reservations() {
     const [reservations, setReservations] = useState([]);
@@ -53,7 +53,7 @@ export default function Reservations() {
         }
     };
 
-    const sendConfirmationEmail = (res) => {
+    const sendEmail = (res, isConfirmed) => {
         if (!res.email) {
             alert("Няма въведен имейл за тази резервация.");
             return;
@@ -62,39 +62,14 @@ export default function Reservations() {
         const templateParams = {
             to_email: res.email,
             to_name: `${res.fname} ${res.lname}`,
-            message: `Здравейте, ${res.fname} ${res.lname},\n\nВашата резервация от ${formatDate(res.date1)} до ${formatDate(res.date2)} е потвърдена.\n\nБлагодарим Ви, че избрахте нас!`
+            message: isConfirmed
+                ? `Здравейте, ${res.fname} ${res.lname},\n\nВашата резервация от ${formatDate(res.date1)} до ${formatDate(res.date2)} е потвърдена.\n\nБлагодарим Ви, че избрахте нас!`
+                : `Здравейте, ${res.fname} ${res.lname},\n\nСъжаляваме, но за избраните дати - от ${formatDate(res.date1)} до ${formatDate(res.date2)} нямаме свободни места.\n\nБлагодарим Ви за разбирането, ще Ви очакваме отново!`
         };
 
-        console.log("Изпращане на имейл до:", templateParams.to_email);
         emailjs.send(
-            "service_m0ezr1g",         
-            "template_2x2mrfc",      
-            templateParams
-        ).then(
-            () => alert("Имейлът е изпратен успешно!"),
-            (error) => {
-                console.error("Грешка при изпращане на имейл:", error);
-                alert("Възникна грешка при изпращане на имейла.");
-            }
-        );
-    };
-
-    const sendRejectionEmail = (res) => {
-        if (!res.email) {
-            alert("Няма въведен имейл за тази резервация.");
-            return;
-        }
-
-        const templateParams = {
-            to_email: res.email,
-            to_name: `${res.fname} ${res.lname}`,
-            message: `Здравейте, ${res.fname} ${res.lname},\n\n Съжаляваме, но за избраните дати - от ${formatDate(res.date1)} до ${formatDate(res.date2)} нямаме свободни места.\n\nБлагодарим Ви за разбирането, ще Ви очакваме отново!`
-        };
-
-        console.log("Изпращане на имейл до:", templateParams.to_email);
-        emailjs.send(
-            "service_m0ezr1g",         
-            "template_2x2mrfc",      
+            "service_m0ezr1g",
+            "template_2x2mrfc",
             templateParams
         ).then(
             () => alert("Имейлът е изпратен успешно!"),
@@ -130,13 +105,13 @@ export default function Reservations() {
                                     <div className="d-flex flex-column gap-2 mt-3">
                                         <button
                                             className="btn btn-sm btn-outline-primary"
-                                            onClick={() => sendConfirmationEmail(res)}
+                                            onClick={() => sendEmail(res, true)}
                                         >
                                             Изпрати имейл за потвърждение
                                         </button>
                                         <button
                                             className="btn btn-sm btn-outline-danger"
-                                            onClick={() => sendRejectionEmail(res)}
+                                            onClick={() => sendEmail(res, false)}
                                         >
                                             Изпрати имейл за отказ
                                         </button>
