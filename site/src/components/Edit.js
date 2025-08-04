@@ -6,14 +6,21 @@ import { getRoomById } from "../services/getRoomById";
 export default function Edit() {
     const navigate = useNavigate();
     const { roomId } = useParams();
-    const [room, setRoom] = useState('');
+    const [room, setRoom] = useState({});
 
     useEffect(() => {
-        getRoomById(roomId)
-            .then(res => {
-                setRoom(res);
-            })
-    }, [roomId])
+        getRoomById(roomId).then(res => {
+            setRoom(res);
+        });
+    }, [roomId]);
+
+    const handleChange = (e) => {
+        setRoom({
+            ...room,
+            [e.target.name]: e.target.value,
+        });
+    };
+
     const editHandler = async (e) => {
         e.preventDefault();
 
@@ -35,65 +42,36 @@ export default function Edit() {
             <div className="container">
                 <div className="section-header">
                     <h2>Редактиране на стая</h2>
-                    <p>
-                        От тук може да редактирате стая.
-                    </p>
+                    <p>От тук може да редактирате стая.</p>
                 </div>
                 <div className="row">
                     <div className="col-md-6">
                         <div className="login-form">
                             <form onSubmit={editHandler}>
                                 <div className="form-row">
-                                    <div className="control-group col-sm-6">
-                                        <label>Тип</label>
-                                        <input type="text" className="form-control" name="type" value={room.type} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Описание</label>
-                                        <input type="text" className="form-control" name="description" value={room.description} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Размер на стаята</label>
-                                        <input type="text" className="form-control" name="size" value={room.size} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Брой легла</label>
-                                        <input type="text" className="form-control" name="beds" value={room.beds} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Цена в лв.</label>
-                                        <input type="text" className="form-control" name="priceLv" value={room.priceLv} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Цена в евро</label>
-                                        <input type="text" className="form-control" name="priceEuro" value={room.priceEuro} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Снимка 1</label>
-                                        <input type="text" className="form-control" name="img1" value={room.img1} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Снимка 2</label>
-                                        <input type="text" className="form-control" name="img2" value={room.img2} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Снимка 3</label>
-                                        <input type="text" className="form-control" name="img3" value={room.img3} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Снимка 4</label>
-                                        <input type="text" className="form-control" name="img4" value={room.img4} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Снимка 5</label>
-                                        <input type="text" className="form-control" name="img5" value={room.img5} required="required" />
-                                    </div>
-                                    <div className="control-group col-sm-6">
-                                        <label>Снимка 6</label>
-                                        <input type="text" className="form-control" name="img6" value={room.img6} required="required" />
-                                    </div>
+                                    {['type', 'description', 'size', 'beds', 'priceLv', 'priceEuro', 'img1', 'img2', 'img3', 'img4', 'img5', 'img6'].map(field => (
+                                        <div className="control-group col-sm-6" key={field}>
+                                            <label>{field === 'type' ? 'Тип' :
+                                                field === 'description' ? 'Описание' :
+                                                    field === 'size' ? 'Размер на стаята' :
+                                                        field === 'beds' ? 'Брой легла' :
+                                                            field === 'priceLv' ? 'Цена в лв.' :
+                                                                field === 'priceEuro' ? 'Цена в евро' :
+                                                                    'Снимка ' + field.slice(-1)}</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name={field}
+                                                value={room[field] || ''}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
-                                <div className="button"><button type="submit">Редактиране</button></div>
+                                <div className="button">
+                                    <button type="submit">Редактиране</button>
+                                </div>
                             </form>
                         </div>
                     </div>
