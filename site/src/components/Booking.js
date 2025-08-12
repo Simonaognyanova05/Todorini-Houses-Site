@@ -11,6 +11,10 @@ export default function Booking() {
         const formData = new FormData(e.currentTarget);
         const { fname, lname, mobile, email, date1, date2, guests, type, requirements } = Object.fromEntries(formData);
 
+        if (fname == '' || lname == '' || mobile == '' || email == '' || date1 == '' || date2 == '' || guests == '' || type == '' || requirements == '') {
+            alert('Всички полета са задължителни!');
+            return;
+        }
         let result = await book(fname, lname, mobile, email, date1, date2, guests, type, requirements);
         if (result.status == 200) {
             alert("Резервацията е създадена успешно!");
