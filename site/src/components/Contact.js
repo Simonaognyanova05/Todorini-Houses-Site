@@ -11,10 +11,10 @@ export default function Contact() {
         const { name, email, subject, message } = Object.fromEntries(formData);
 
         let res = await sendMessage(name, email, subject, message);
-        if(res.status === 200){
+        if (res.status === 200) {
             alert("Съобщението е изратено успешно!");
             navigate('/');
-        }else{
+        } else {
             alert("Възникна грешка, моля опитайте по-късно!");
         }
     }
@@ -29,24 +29,30 @@ export default function Contact() {
                 </div>
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="row contact-info">
-                            <div className="col-md-4">
+                        <div className="row contact-info text-center">
+                            <div className="col-md-3">
                                 <div className="info-item">
-                                    <p><i className="fa fa-map-marker"></i>ул. "Любен Каравелов" 22</p>
+                                    <p><i className="fa fa-map-marker"></i> ул. "Любен Каравелов" 22</p>
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-3">
                                 <div className="info-item">
                                     <p><i className="fa fa-envelope"></i> <a href="mailto:contacts@todorinikashti.com">contacts@todorinikashti.com</a></p>
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-3">
                                 <div className="info-item">
-                                    <p><i className="fa fa-phone"></i><a href="tel:+1 234 567 8900">0887349901, 0887733430</a></p>
+                                    <p><i className="fa fa-phone"></i> <a href="tel:0887349901">0887349901</a></p>
+                                </div>
+                            </div>
+                            <div className="col-md-3">
+                                <div className="info-item">
+                                    <p><i className="fa fa-phone"></i> <a href="tel:0887733430">0887733430</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div className="col-md-12">
                         <div className="contact-form">
                             <div id="success"></div>
