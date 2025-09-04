@@ -32,7 +32,12 @@ export default function Contact() {
                         <div className="row contact-info text-center">
                             <div className="col-md-3">
                                 <div className="info-item">
-                                    <p><i className="fa fa-map-marker"></i> ул. "Любен Каравелов" 22</p>
+                                    <p><i className="fa fa-map-marker"></i>Хотел - ул. "Любен Каравелов" 22</p>
+                                </div>
+                            </div>
+                            <div className="col-md-3">
+                                <div className="info-item">
+                                    <p><i className="fa fa-map-marker"></i>Механа - бул. Хаджи Ненчо Палавеев 76</p>
                                 </div>
                             </div>
                             <div className="col-md-3">
