@@ -48,7 +48,7 @@ const imageGroups = {
         "https://i.imgur.com/Ck5UDZs.jpeg",
         "https://i.imgur.com/shRXeXp.jpeg",
         "https://i.imgur.com/d0e4Gg0.jpeg",
-        "https://i.imgur.com/XmuoNT6.jpeg",
+        "https://i.imgur.com/T09QYdU.jpeg",
         "https://i.imgur.com/8vMlinn.jpeg",
         "https://i.imgur.com/zvGT7Oa.jpeg",
         "https://i.imgur.com/ccZdRHB.jpeg",
