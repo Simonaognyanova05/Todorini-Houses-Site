@@ -16,6 +16,7 @@ import Messages from "./components/Messages";
 import Edit from "./components/Edit";
 import ForgottenPassword from "./components/ForgottenPassword";
 import CreateOffer from "./components/CreateOffer";
+import OffersList from "./components/OffercList/OffersList";
 
 
 
@@ -26,6 +27,7 @@ function App() {
       <Routes basename="/">
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/offersList" element={<OffersList />} />
         <Route path="/forgotten" element={<ForgottenPassword />} />
         <Route path="/amenities" element={<Amenities />} />
         <Route path="/:type" element={<Amenities />} />
