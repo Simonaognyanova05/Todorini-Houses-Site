@@ -15,6 +15,7 @@ import Reservations from "./components/Reservations";
 import Messages from "./components/Messages";
 import Edit from "./components/Edit";
 import ForgottenPassword from "./components/ForgottenPassword";
+import CreateOffer from "./components/CreateOffer";
 
 
 
@@ -38,6 +39,8 @@ function App() {
         <Route path="/bookings" element={<Reservations />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/create" element={<CreateRoom />} />
+        <Route path="/createOffer" element={<CreateOffer />} />
+
       </Routes>
 
       <Footer />

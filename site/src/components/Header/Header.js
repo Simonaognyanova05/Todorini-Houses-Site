@@ -13,6 +13,7 @@ export default function Header() {
     <>
       <li><Link to="/room">Стаи</Link></li>
       <li className="active"><Link to="/create">Създаване на стая</Link></li>
+      <li className="active"><Link to="/createOffer">Създаване на оферта</Link></li>
       <li className="active"><Link to="/bookings">Резервации</Link></li>
       <li className="active"><Link to="/messages">Съобщения</Link></li>
       <li className="active"><Link to="/logout">Изход</Link></li>
@@ -24,6 +25,7 @@ export default function Header() {
       <li><Link to="/about">За нас</Link></li>
       <li><Link to="/room">Стаи</Link></li>
       <li><Link to="/amenities">Удобства</Link></li>
+      <li><Link to="/amenities">Специални оферти</Link></li>
       <li><Link to="/booking">Резервирайте</Link></li>
       <li><Link to="/contact">Контакти</Link></li>
       <li><Link to="/login">Влизане</Link></li>
