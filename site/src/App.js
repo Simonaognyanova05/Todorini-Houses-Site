@@ -16,7 +16,8 @@ import Messages from "./components/Messages";
 import Edit from "./components/Edit";
 import ForgottenPassword from "./components/ForgottenPassword";
 import CreateOffer from "./components/CreateOffer";
-import OffersList from "./components/OffercList/OffersList";
+import OffersList from "./components/OffersList/OffersList";
+import EditOffer from "./components/EditOffer";
 
 
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/messages" element={<Messages />} />
         <Route path="/create" element={<CreateRoom />} />
         <Route path="/createOffer" element={<CreateOffer />} />
+        <Route path="/offers/edit/:id" element={<EditOffer />} />
 
       </Routes>
 

@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../config/firebase";
+import { useNavigate } from "react-router-dom";
 import "./OffersList.css";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function OffersList() {
     const [offers, setOffers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+    const { user } = useAuth();
 
     useEffect(() => {
         const fetchOffers = async () => {
@@ -25,6 +29,19 @@ export default function OffersList() {
 
         fetchOffers();
     }, []);
+
+    const handleDelete = async (id) => {
+        const confirmDelete = window.confirm("Сигурни ли сте, че искате да изтриете тази оферта?");
+        if (!confirmDelete) return;
+
+        try {
+            await deleteDoc(doc(db, "offers", id));
+            setOffers((prev) => prev.filter((offer) => offer.id !== id));
+        } catch (error) {
+            console.error("Грешка при изтриване:", error);
+            alert("Възникна грешка при изтриване на офертата.");
+        }
+    };
 
     if (loading) {
         return <p className="text-center mt-10">Зареждане...</p>;
@@ -53,11 +70,22 @@ export default function OffersList() {
                                 <span className="price-euro">€{offer.priceEuro}</span>
                             </div>
 
-                            {/* Новите бутони */}
-                            <div className="offer-actions">
-                                <button className="btn edit-btn">Редактиране</button>
-                                <button className="btn delete-btn">Изтриване</button>
-                            </div>
+                            {user?.email && (
+                                <div className="offer-actions">
+                                    <button
+                                        className="btn edit-btn"
+                                        onClick={() => navigate(`/offers/edit/${offer.id}`)}
+                                    >
+                                        Редактиране
+                                    </button>
+                                    <button
+                                        className="btn delete-btn"
+                                        onClick={() => handleDelete(offer.id)}
+                                    >
+                                        Изтриване
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </div>
                 ))}

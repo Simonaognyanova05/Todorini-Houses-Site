@@ -25,7 +25,7 @@ export default function Header() {
       <li><Link to="/about">За нас</Link></li>
       <li><Link to="/room">Стаи</Link></li>
       <li><Link to="/amenities">Удобства</Link></li>
-      <li><Link to="/amenities">Специални оферти</Link></li>
+      <li><Link to="/offersList">Специални оферти</Link></li>
       <li><Link to="/booking">Резервирайте</Link></li>
       <li><Link to="/contact">Контакти</Link></li>
       <li><Link to="/login">Влизане</Link></li>
