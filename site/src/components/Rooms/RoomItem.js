@@ -28,13 +28,13 @@ export default function RoomItem({ room }) {
     const loggedUser = (
         <div className="mt-3 d-flex gap-2">
             <button
-                className="btn btn-sm btn-outline-primary"
+                className="btn edit-btn"
                 onClick={handleEdit}
             >
                 Редактирай
             </button>
             <button
-                className="btn btn-sm btn-outline-danger"
+                className="btn delete-btn"
                 onClick={handleDelete}
             >
                 Изтрий

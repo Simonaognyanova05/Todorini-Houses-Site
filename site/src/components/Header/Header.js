@@ -12,6 +12,7 @@ export default function Header() {
   const loggedAdmin = (
     <>
       <li><Link to="/room">Стаи</Link></li>
+      <li><Link to="/offersList">Оферти</Link></li>
       <li className="active"><Link to="/create">Създаване на стая</Link></li>
       <li className="active"><Link to="/createOffer">Създаване на оферта</Link></li>
       <li className="active"><Link to="/bookings">Резервации</Link></li>
