@@ -97,7 +97,7 @@ export default function RoomItem({ room }) {
                         <div className="room-rate">
                             <h3>Цени</h3>
                             <h1>{room.priceLv} лв.</h1>
-                            <h1>{room.priceEuro}€</h1>
+                            <h1>€{room.priceEuro}</h1>
                         </div>
                     </div>
                 </div>

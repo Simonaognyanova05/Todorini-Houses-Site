@@ -48,7 +48,7 @@ export default function OffersList() {
     }
 
     if (offers.length === 0) {
-        return <p className="text-center mt-10">Няма налични оферти.</p>;
+        return <p className="text-center mt-10" style={{fontSize: "30px", margin: "100px"}}>Все още налични оферти.</p>;
     }
 
     return (
