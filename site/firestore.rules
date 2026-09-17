@@ -3,7 +3,12 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function isAdmin() {
-      return request.auth != null && request.auth.token.admin == true;
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in [
+          'simonaognanova05@gmail.com',
+          'tkashti@abv.bg'
+        ];
     }
 
     function validMessage() {
@@ -26,6 +31,41 @@ service cloud.firestore {
         && request.resource.data.createdAt == request.time;
     }
 
+    function validBooking() {
+      let d = request.resource.data;
+      return d.keys().hasAll(['fname', 'lname', 'mobile', 'email', 'date1', 'date2', 'guests', 'type', 'requirements', 'createdAt'])
+        && d.keys().hasOnly(['fname', 'lname', 'mobile', 'email', 'date1', 'date2', 'guests', 'type', 'requirements', 'createdAt'])
+        && d.fname is string && d.fname.size() >= 2 && d.fname.size() <= 100
+        && d.lname is string && d.lname.size() >= 2 && d.lname.size() <= 100
+        && d.mobile is string && d.mobile.matches('^[+]?[0-9]{8,15}$')
+        && d.email is string && d.email.size() <= 254
+        && d.email.matches('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$')
+        && d.guests is int && d.guests >= 1 && d.guests <= 4
+        && d.type in ['Една обща', 'Две отделни']
+        && d.requirements is string && d.requirements.size() <= 2000
+        && d.date1 is timestamp && d.date2 is timestamp
+        && d.date1 == d.date1.date() && d.date2 == d.date2.date()
+        // UTC day boundary allows same-day arrivals; the form uses Europe/Sofia.
+        && d.date1 >= request.time.date()
+        && d.date2 > d.date1
+        && d.createdAt == request.time;
+    }
+
+    // Public catalogue; only the designated administrator may change it.
+    match /rooms/{roomId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /offers/{offerId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    match /bookings/{bookingId} {
+      allow create: if validBooking();
+      allow read, delete: if isAdmin();
+      allow update: if false;
+    }
     match /messages/{messageId} {
       allow create: if validMessage();
       allow read, delete: if isAdmin();
