@@ -1,3 +1,4 @@
+import { confirmAction } from '../services/notifications';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getReservations } from '../services/getReservations';
 import { doc, deleteDoc } from 'firebase/firestore';
@@ -31,7 +32,7 @@ export default function Reservations() {
     useEffect(() => { fetchData(); }, [fetchData]);
 
     const handleDelete = async (id) => {
-        if (actionLock.current || !window.confirm('Да приключим ли резервацията? Тя ще бъде премахната от списъка.')) return;
+        if (actionLock.current || !(await confirmAction('Да приключим ли резервацията? Тя ще бъде премахната от списъка.'))) return;
         actionLock.current = true;
         setBusy(id);
         setNotice(null);

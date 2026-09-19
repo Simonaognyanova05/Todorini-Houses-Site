@@ -1,3 +1,4 @@
+import { confirmAction } from '../services/notifications';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getMessages } from '../services/getMessages';
 import { doc, deleteDoc } from 'firebase/firestore';
@@ -22,7 +23,7 @@ export default function Messages() {
     useEffect(() => { fetchData(); }, [fetchData]);
 
     const handleDelete = async (id) => {
-        if (actionLock.current || !window.confirm('Да премахнем ли прочетеното съобщение от списъка?')) return;
+        if (actionLock.current || !(await confirmAction('Да премахнем ли прочетеното съобщение от списъка?'))) return;
         actionLock.current = true;
         setBusy(id);
         setNotice(null);

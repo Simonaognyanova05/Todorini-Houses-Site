@@ -1,3 +1,4 @@
+import { notify } from '../services/notifications';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../services/register';
 
@@ -10,17 +11,17 @@ export default function Registration() {
         const formData = new FormData(e.currentTarget);
         const { email, password, rePass } = Object.fromEntries(formData);
 
-        if (password != rePass) {
-            alert("Паролите не съвпадат!");
-            navigate('/registration');
+        if (password !== rePass) {
+            notify("Паролите не съвпадат!");
+            return;
         }
 
         let result = await register(email, password);
         if (result.status === 200) {
-            alert("Успешна регистрация!")
+            notify("Успешна регистрация!", 'success');
             navigate('/');
         } else {
-            alert("Възникна грешка. Моля, опитайте по-бързо!");
+            notify("Възникна грешка. Моля, опитайте по-бързо!");
         }
     }
     return (

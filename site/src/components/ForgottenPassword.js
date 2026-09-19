@@ -1,3 +1,4 @@
+import { notify } from '../services/notifications';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { resetPassword } from '../services/resetPassword'; // твоята service функция
@@ -10,15 +11,15 @@ export default function ForgottenPassword() {
         e.preventDefault();
         try {
             await resetPassword(email);
-            alert("Изпратихме ви имейл за възстановяване на паролата.");
+            notify("Изпратихме ви имейл за възстановяване на паролата.", 'success');
             navigate("/login");
         } catch (error) {
             if (error.code === 'auth/user-not-found') {
-                alert("Не съществува потребител с този имейл.");
+                notify("Не съществува потребител с този имейл.");
             } else if (error.code === 'auth/invalid-email') {
-                alert("Невалиден имейл адрес.");
+                notify("Невалиден имейл адрес.");
             } else {
-                alert("Грешка: " + error.message);
+                notify("Грешка: " + error.message);
             }
         }
     };

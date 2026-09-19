@@ -1,3 +1,4 @@
+import { notify, confirmAction } from '../../services/notifications';
 import { useEffect, useState } from "react";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../config/firebase";
@@ -31,7 +32,7 @@ export default function OffersList() {
     }, []);
 
     const handleDelete = async (id) => {
-        const confirmDelete = window.confirm("Сигурни ли сте, че искате да изтриете тази оферта?");
+        const confirmDelete = await confirmAction("Сигурни ли сте, че искате да изтриете тази оферта?");
         if (!confirmDelete) return;
 
         try {
@@ -39,7 +40,7 @@ export default function OffersList() {
             setOffers((prev) => prev.filter((offer) => offer.id !== id));
         } catch (error) {
             console.error("Грешка при изтриване:", error);
-            alert("Възникна грешка при изтриване на офертата.");
+            notify("Възникна грешка при изтриване на офертата.");
         }
     };
 

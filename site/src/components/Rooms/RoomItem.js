@@ -1,3 +1,4 @@
+import { notify, confirmAction } from '../../services/notifications';
 import { useState } from "react";
 import RoomModalItem from "./RoomModalItem";
 import { doc, deleteDoc } from "firebase/firestore";
@@ -8,6 +9,7 @@ import { useAuth } from "../../contexts/AuthContext";
 export default function RoomItem({ room }) {
     const navigate = useNavigate();
     const [viewerOpen, setViewerOpen] = useState(false);
+    const [deleted, setDeleted] = useState(false);
     const { user } = useAuth();
 
     const handleEdit = () => {
@@ -15,16 +17,16 @@ export default function RoomItem({ room }) {
     };
 
     const handleDelete = async () => {
-        const confirmDelete = window.confirm("Сигурни ли сте, че искате да изтриете тази стая?");
+        const confirmDelete = await confirmAction("Сигурни ли сте, че искате да изтриете тази стая?");
         if (!confirmDelete) return;
 
         try {
             await deleteDoc(doc(db, "rooms", room.id));
-            alert("Стаята беше успешно изтрита.");
-            window.location.reload();
+            notify("Стаята беше успешно изтрита.", 'success');
+            setDeleted(true);
         } catch (error) {
             console.error("Грешка при изтриване:", error);
-            alert("Възникна грешка при изтриването на стаята.");
+            notify("Възникна грешка при изтриването на стаята.");
         }
     };
 
@@ -45,6 +47,7 @@ export default function RoomItem({ room }) {
         </div>
     );
 
+    if (deleted) return null;
     return (<>
         <div className="row">
             <div className="col-md-12">

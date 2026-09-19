@@ -1,3 +1,5 @@
+import { confirmAction } from '../services/notifications';
+jest.mock('../services/notifications', () => ({ confirmAction: jest.fn(), notify: jest.fn() }));
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { deleteDoc } from 'firebase/firestore';
@@ -72,12 +74,12 @@ test('sends a confirmation only for the selected guest and preserves the reserva
 });
 
 test('keeps a reservation when completion is cancelled', async () => {
-    const confirm = jest.spyOn(window, 'confirm').mockReturnValue(false);
+    confirmAction.mockResolvedValue(false);
     render(<Reservations />);
     fireEvent.click(await screen.findByRole('button', { name: 'Приключи и премахни' }));
     expect(deleteDoc).not.toHaveBeenCalled();
     expect(screen.getByText('Мария Иванова')).toBeInTheDocument();
-    confirm.mockRestore();
+
 });
 
 test('shows a load error rather than an empty inbox and permits retry', async () => {
@@ -93,12 +95,12 @@ test('shows a load error rather than an empty inbox and permits retry', async ()
 test('preserves the message and reports an unsuccessful deletion', async () => {
     getMessages.mockResolvedValue([{ id: 'message-1', name: 'Гост', email: 'guest@example.com', subject: 'Въпрос', message: 'Имате ли свободни стаи?' }]);
     deleteDoc.mockRejectedValueOnce(new Error('offline'));
-    const confirm = jest.spyOn(window, 'confirm').mockReturnValue(true);
+    confirmAction.mockResolvedValue(true);
     render(<Messages />);
     fireEvent.click(await screen.findByRole('button', { name: 'Прочетено · премахни' }));
     await screen.findByRole('alert');
     expect(screen.getByText('Имате ли свободни стаи?')).toBeInTheDocument();
-    confirm.mockRestore();
+
 });
 
 test('editing a room preserves all six image addresses and submits only editable fields', async () => {
