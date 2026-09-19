@@ -1,55 +1,28 @@
-import './Header.css'
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import './Header.css';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 
+const guestLinks = [['/', 'Начало'], ['/about', 'За нас'], ['/room', 'Стаи'], ['/amenities', 'Удобства'], ['/offersList', 'Оферти'], ['/contact', 'Контакти']];
+const adminLinks = [['/room', 'Стаи'], ['/offersList', 'Оферти'], ['/create', 'Нова стая'], ['/createOffer', 'Нова оферта'], ['/bookings', 'Резервации'], ['/messages', 'Съобщения'], ['/logout', 'Изход']];
+
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { user } = useAuth();
-
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-
-  const loggedAdmin = (
-    <>
-      <li><Link to="/room">Стаи</Link></li>
-      <li><Link to="/offersList">Оферти</Link></li>
-      <li className="active"><Link to="/create">Създаване на стая</Link></li>
-      <li className="active"><Link to="/createOffer">Създаване на оферта</Link></li>
-      <li className="active"><Link to="/bookings">Резервации</Link></li>
-      <li className="active"><Link to="/messages">Съобщения</Link></li>
-      <li className="active"><Link to="/logout">Изход</Link></li>
-    </>
-  );
-
-  const unloggedAdmin = (
-    <>
-      <li><Link to="/about">За нас</Link></li>
-      <li><Link to="/room">Стаи</Link></li>
-      <li><Link to="/amenities">Удобства</Link></li>
-      <li><Link to="/offersList">Специални оферти</Link></li>
-      <li><Link to="/booking">Резервирайте</Link></li>
-      <li><Link to="/contact">Контакти</Link></li>
-      <li><Link to="/login">Влизане</Link></li>
-    </>
-  );
-  return (
-    <header id="header">
-      <Link to="/" className="logo">
-        <img src="/img/logo1.jpg" alt="logo" />
-      </Link>
-      <div className="phone"><i className="fa fa-phone"></i>0887349901</div>
-
-      <div className="mobile-menu-btn" onClick={toggleMenu}>
-        <i className="fa fa-bars"></i>
-      </div>
-
-      <nav className={`main-menu top-menu ${menuOpen ? 'open' : ''}`}>
-        <ul>
-          <li className="active"><Link to="/">Начало</Link></li>
-
-          {Boolean(user.email) ? loggedAdmin : unloggedAdmin}
-        </ul>
-      </nav>
-    </header>
-  );
+    const [menuOpen, setMenuOpen] = useState(false);
+    const { user } = useAuth();
+    const { pathname } = useLocation();
+    const toggle = useRef(null);
+    useEffect(() => { setMenuOpen(false); if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' }); }, [pathname]);
+    const closeOnEscape = (event) => {
+        if (event.key === 'Escape') { setMenuOpen(false); toggle.current?.focus(); }
+    };
+    return (
+        <header id="header" className="hotel-header" onKeyDown={closeOnEscape}>
+            <Link to="/" className="hotel-brand" aria-label="Тодорини къщи — начало"><img src="/img/logo1.jpg" alt="" /><span>Тодорини къщи<small>Копривщица · Семеен хотел</small></span></Link>
+            <button ref={toggle} className="hotel-menu-toggle" type="button" aria-label={menuOpen ? "Затвори менюто" : "Отвори менюто"} aria-expanded={menuOpen} aria-controls="hotel-navigation" onClick={() => setMenuOpen(!menuOpen)}><span>{menuOpen ? 'Затвори' : 'Меню'}</span><span aria-hidden="true">{menuOpen ? '×' : '☰'}</span></button>
+            <nav id="hotel-navigation" className={`hotel-navigation ${menuOpen ? 'is-open' : ''}`} aria-label="Основна навигация">
+                {(user.email ? adminLinks : guestLinks).map(([to, label]) => <NavLink key={to} to={to} end onClick={() => setMenuOpen(false)}>{label}</NavLink>)}
+                {!user.email && <Link to="/booking" className="header-booking" onClick={() => setMenuOpen(false)}>Резервирайте <span aria-hidden="true">↗</span></Link>}
+            </nav>
+        </header>
+    );
 }

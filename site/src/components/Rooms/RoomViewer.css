@@ -1,0 +1,32 @@
+.room-des h3 .room-view-trigger { border: 0; padding: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.box12 .room-view-trigger { width: 44px; height: 44px; border: 1px solid #ffd700; border-radius: 50%; background: #222; color: #ffd700; cursor: pointer; }
+.room-viewer { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 32px; background: rgba(12,14,13,.88); backdrop-filter: blur(10px); }
+.room-viewer__dialog { position: relative; display: grid; grid-template-columns: minmax(0,1.6fr) minmax(300px,1fr); width: min(1240px,100%); max-height: calc(100dvh - 64px); overflow: auto; background: #f8f6f0; color: #222; box-shadow: 0 32px 100px #0008; }
+.room-viewer button { cursor: pointer; }
+.room-viewer button:focus-visible, .room-viewer a:focus-visible, .room-view-trigger:focus-visible { outline: 3px solid #ffd700; outline-offset: 4px; }
+.room-viewer__close { position: absolute; top: 14px; right: 14px; z-index: 2; width: 40px; height: 40px; border: 1px solid #ffffff50; background: #222; color: white; font-size: 28px; line-height: 1; }
+.room-viewer__media { min-width: 0; padding: 20px; background: #191b19; display: flex; flex-direction: column; justify-content: center; }
+.room-viewer__stage { position: relative; display: flex; align-items: center; justify-content: center; height: min(60vh,570px); min-height: 280px; color: white; }
+.room-viewer__stage > img { width: 100%; height: 100%; object-fit: contain; }
+.room-viewer__arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 52px; border: 1px solid #ffffff60; background: #222b; color: white; font-size: 34px; line-height: 1; transition: background .2s; }
+.room-viewer__arrow:hover { background: #222; color: #ffd700; }
+.room-viewer__arrow--prev { left: 12px; }
+.room-viewer__arrow--next { right: 12px; }
+.room-viewer__count { position: absolute; bottom: 14px; right: 14px; padding: 7px 12px; background: #222c; font-size: 11px; letter-spacing: .18em; color: white; }
+.room-viewer__thumbnails { display: flex; gap: 9px; overflow-x: auto; padding: 16px 2px 4px; }
+.room-viewer__thumbnails button { flex: 0 0 76px; height: 54px; padding: 3px; border: 1px solid transparent; background: none; opacity: .55; transition: opacity .2s; }
+.room-viewer__thumbnails button[aria-pressed="true"] { border-color: #ffd700; opacity: 1; }
+.room-viewer__thumbnails button:hover { opacity: 1; }
+.room-viewer__thumbnails img { width: 100%; height: 100%; object-fit: cover; }
+.room-viewer__details { display: flex; flex-direction: column; padding: 65px 36px 36px; }
+.room-viewer__eyebrow { display: block; font-size: 10px; letter-spacing: .17em; line-height: 1.8; color: #69665c; }
+.room-viewer__details h2 { margin: 22px 0; font-family: Georgia,serif; font-size: clamp(28px,3vw,42px); font-weight: 400; line-height: 1.15; }
+.room-viewer__facts { display: flex; gap: 22px; border-top: 1px solid #dedbd1; border-bottom: 1px solid #dedbd1; padding: 17px 0; font-size: 13px; }
+.room-viewer__description { margin: 24px 0 32px; font-size: 14px; line-height: 1.9; color: #625e54; white-space: pre-line; }
+.room-viewer__reservation { margin-top: auto; padding-top: 22px; border-top: 1px solid #dedbd1; }
+.room-viewer__price { margin: 10px 0 20px; font-family: Georgia,serif; font-size: 34px; }
+.room-viewer__price span { margin-left: 12px; font-family: sans-serif; font-size: 14px; color: #69665c; }
+.room-viewer__book { display: flex; justify-content: space-between; gap: 16px; padding: 17px 20px; background: #222; color: #ffd700; font-size: 13px; }
+.room-viewer__book:hover { background: #ffd700; color: #222; text-decoration: none; }
+@media (max-width: 850px) { .room-viewer { padding: 16px; } .room-viewer__dialog { grid-template-columns: 1fr; max-height: calc(100dvh - 32px); } .room-viewer__stage { height: 46vh; min-height: 220px; } .room-viewer__details { padding: 30px; } .room-viewer__media { padding: 12px; } }
+@media (max-width: 480px) { .room-viewer { padding: 8px; } .room-viewer__dialog { max-height: calc(100dvh - 16px); } .room-viewer__details { padding: 26px 22px; } .room-viewer__stage { height: 35vh; } .room-viewer__thumbnails button { flex-basis: 62px; height: 46px; } }

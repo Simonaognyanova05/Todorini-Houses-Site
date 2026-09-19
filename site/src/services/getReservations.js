@@ -14,6 +14,6 @@ export async function getReservations() {
         return products;
     } catch (error) {
         console.error("Грешка при извличане на резервациите: ", error);
-        return [];
+        throw error;
     }
 }
