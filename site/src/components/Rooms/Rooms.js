@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import RoomItem from "./RoomItem";
-import RoomModalItem from "./RoomModalItem";
+
 import { getRooms } from "../../services/getRooms";
 
 export default function Rooms() {
@@ -11,7 +11,7 @@ export default function Rooms() {
             .then(res => {
                 setRooms(res);
             })
-    }, [rooms]);
+    }, []);
     return (
         <>
             <div id="rooms">
@@ -23,7 +23,7 @@ export default function Rooms() {
                         </p>
                     </div>
                     {rooms.length > 0
-                        ? rooms.map(x => (<><RoomItem room={x} /> <RoomModalItem x={x} /> </>))
+                        ? rooms.map(x => <RoomItem key={x.id} room={x} />)
                         : 'Няма създадени стаи'}
 
                 </div>

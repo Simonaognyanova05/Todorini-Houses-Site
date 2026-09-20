@@ -11,7 +11,7 @@ export default function About() {
                 <div className="row">
                     <div className="col-md-6 img-cols">
                         <div className="img-col">
-                            <img className="img-fluid" src="/img/bigfotos3.jpg" />
+                            <img alt="" className="img-fluid" src="/img/bigfotos3.jpg" />
                         </div>
                     </div>
                     <div className="col-md-6 content-cols">
@@ -30,7 +30,7 @@ export default function About() {
                 <div className="row">
                     <div className="col-md-6 img-cols d-block d-md-none">
                         <div className="img-col">
-                            <img className="img-fluid" src="https://i.imgur.com/pq3GuHV.jpeg" />
+                            <img alt="" className="img-fluid" src="https://i.imgur.com/pq3GuHV.jpeg" />
                         </div>
                     </div>
                     <div className="col-md-6 content-cols">
@@ -44,7 +44,7 @@ export default function About() {
                     </div>
                     <div className="col-md-6 img-cols d-none d-md-block">
                         <div className="img-col">
-                            <img className="img-fluid" src="https://i.imgur.com/pq3GuHV.jpeg" />
+                            <img alt="" className="img-fluid" src="https://i.imgur.com/pq3GuHV.jpeg" />
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ export default function About() {
                 <div className="row">
                     <div className="col-md-6 img-cols">
                         <div className="img-col">
-                            <img className="img-fluid" src="https://i.imgur.com/ML06ePU.jpeg" />
+                            <img alt="" className="img-fluid" src="https://i.imgur.com/ML06ePU.jpeg" />
                         </div>
                     </div>
                     <div className="col-md-6 content-cols">

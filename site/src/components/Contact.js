@@ -1,3 +1,4 @@
+import { notify } from '../services/notifications';
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendMessage } from "../services/sendMessage";
@@ -27,18 +28,18 @@ export default function Contact() {
             return;
         }
         if (Date.now() - openedAt.current < 5000) {
-            alert("Моля, отделете няколко секунди, за да попълните формата.");
+            notify("Моля, отделете няколко секунди, за да попълните формата.");
             return;
         }
         if (humanCheck !== "on" || Number(challengeAnswer) !== challenge.answer) {
-            alert("Моля, потвърдете, че не сте робот, и решете правилно задачата.");
+            notify("Моля, потвърдете, че не сте робот, и решете правилно задачата.");
             return;
         }
 
         const lastSentAt = Number(localStorage.getItem(LAST_SENT_KEY) || 0);
         const remaining = COOLDOWN_MS - (Date.now() - lastSentAt);
         if (remaining > 0) {
-            alert(`Можете да изпратите ново съобщение след ${Math.ceil(remaining / 60000)} мин.`);
+            notify(`Можете да изпратите ново съобщение след ${Math.ceil(remaining / 60000)} мин.`);
             return;
         }
 
@@ -47,10 +48,10 @@ export default function Contact() {
         setSending(false);
         if (res.status === 200) {
             localStorage.setItem(LAST_SENT_KEY, String(Date.now()));
-            alert("Съобщението е изпратено успешно!");
+            notify("Съобщението е изпратено успешно!", 'success');
             navigate('/');
         } else {
-            alert(res.message || "Възникна грешка, моля опитайте по-късно!");
+            notify(res.message || "Възникна грешка, моля опитайте по-късно!");
         }
     }
     return (

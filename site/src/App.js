@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
@@ -18,14 +18,20 @@ import ForgottenPassword from "./components/ForgottenPassword";
 import CreateOffer from "./components/CreateOffer";
 import OffersList from "./components/OffersList/OffersList";
 import EditOffer from "./components/EditOffer";
+import './premium.css';
+import AdminShell from './components/AdminShell';
+import { useAuth } from './contexts/AuthContext';
 
 
 
 function App() {
-  return (
-    <>
-      <Header />
-      <Routes basename="/">
+  const { pathname } = useLocation();
+  const { user } = useAuth();
+  const adminPage = ['/bookings', '/messages', '/create', '/createOffer'].includes(pathname)
+    || pathname.startsWith('/room/') || pathname.startsWith('/offers/edit/')
+    || (Boolean(user.email) && ['/room', '/offersList'].includes(pathname));
+  const content = (
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/offersList" element={<OffersList />} />
@@ -44,8 +50,19 @@ function App() {
         <Route path="/create" element={<CreateRoom />} />
         <Route path="/createOffer" element={<CreateOffer />} />
         <Route path="/offers/edit/:id" element={<EditOffer />} />
-
       </Routes>
+  );
+  if (adminPage) return <AdminShell>
+    {['/room', '/offersList'].includes(pathname) && <div className="admin-catalog-action"><Link className="admin-button" to={pathname === '/room' ? '/create' : '/createOffer'}>{pathname === '/room' ? '+ Нова стая' : '+ Нова оферта'}</Link></div>}
+    {content}
+  </AdminShell>;
+  return (
+    <>
+      <a className="skip-link" href="#main-content">Към съдържанието</a>
+      <Header />
+      <main id="main-content" className="site-main" tabIndex={-1}>
+      {content}
+      </main>
 
       <Footer />
     </>

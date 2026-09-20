@@ -1,5 +1,5 @@
 import './Amenities.css';
-import { Link, useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import AmenitiesItem from './AmenitiesItem';
 
 const imageGroups = {
@@ -71,24 +71,24 @@ const imageGroups = {
 
 export default function Gallery() {
     const { type } = useParams();
-    const images = imageGroups[type] || [];
+    const images = imageGroups[type] || imageGroups.guestHouseImages;
 
     return (
-        <>
-            <br />
+        <section className="hotel-gallery">
+
             <div className="section-header">
                 <h2>Галерия</h2>
                 <p>Това са снимки от нашия хотел и нашата механа.</p>
             </div>
 
             <nav className="galleryNav">
-                <Link to="/guestHouseImages">Хотел</Link>
-                <Link to="/spa">Спа</Link>
-                <Link to="/mehana">Механа</Link>
-                <Link to="/menu">Меню</Link>
+                <NavLink to="/guestHouseImages" className={({ isActive }) => isActive || !type ? "active" : ""}>Хотел</NavLink>
+                <NavLink to="/spa">Спа</NavLink>
+                <NavLink to="/mehana">Механа</NavLink>
+                <NavLink to="/menu">Меню</NavLink>
             </nav>
 
             <AmenitiesItem images={images} />
-        </>
+        </section>
     );
 }

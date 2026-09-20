@@ -4,13 +4,7 @@
     // Initiate the wowjs animation library
     new WOW().init();
     
-    // Initiate menu
-    $('#header').after('<div class="mobile-menu d-xl-none">');
-    $('.top-menu').clone().appendTo('.mobile-menu');
-    $('.mobile-menu-btn').click(function () {
-        $('.mobile-menu').stop().slideToggle();
-    });
-    
+    // Navigation is managed by the React Header component.
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {

@@ -1,3 +1,6 @@
+import { notify, confirmAction } from '../../services/notifications';
+import { useState } from "react";
+import RoomModalItem from "./RoomModalItem";
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
@@ -5,6 +8,8 @@ import { useAuth } from "../../contexts/AuthContext";
 
 export default function RoomItem({ room }) {
     const navigate = useNavigate();
+    const [viewerOpen, setViewerOpen] = useState(false);
+    const [deleted, setDeleted] = useState(false);
     const { user } = useAuth();
 
     const handleEdit = () => {
@@ -12,16 +17,16 @@ export default function RoomItem({ room }) {
     };
 
     const handleDelete = async () => {
-        const confirmDelete = window.confirm("Сигурни ли сте, че искате да изтриете тази стая?");
+        const confirmDelete = await confirmAction("Сигурни ли сте, че искате да изтриете тази стая?");
         if (!confirmDelete) return;
 
         try {
             await deleteDoc(doc(db, "rooms", room.id));
-            alert("Стаята беше успешно изтрита.");
-            window.location.reload();
+            notify("Стаята беше успешно изтрита.", 'success');
+            setDeleted(true);
         } catch (error) {
             console.error("Грешка при изтриване:", error);
-            alert("Възникна грешка при изтриването на стаята.");
+            notify("Възникна грешка при изтриването на стаята.");
         }
     };
 
@@ -42,7 +47,8 @@ export default function RoomItem({ room }) {
         </div>
     );
 
-    return (
+    if (deleted) return null;
+    return (<>
         <div className="row">
             <div className="col-md-12">
                 <div className="row">
@@ -54,9 +60,9 @@ export default function RoomItem({ room }) {
                                     <h3 className="title">{room.type}</h3>
                                     <ul className="icon">
                                         <li>
-                                            <a href="#" data-toggle="modal" data-target={`#modal-room-${room.id}`}>
+                                            <button type="button" className="room-view-trigger" aria-label={`Разгледай ${room.type}`} onClick={() => setViewerOpen(true)}>
                                                 <i className="fa fa-link"></i>
-                                            </a>
+                                            </button>
                                         </li>
                                     </ul>
                                 </div>
@@ -67,9 +73,9 @@ export default function RoomItem({ room }) {
                     <div className="col-md-6">
                         <div className="room-des">
                             <h3>
-                                <a href="#" data-toggle="modal" data-target={`#modal-room-${room.id}`}>
+                                <button type="button" className="room-view-trigger" aria-label={`Разгледай ${room.type}`} onClick={() => setViewerOpen(true)}>
                                     {room.type}
-                                </a>
+                                </button>
                             </h3>
                             <p>{room.description}</p>
                             <ul className="room-size">
@@ -104,5 +110,6 @@ export default function RoomItem({ room }) {
                 <hr />
             </div>
         </div>
+        {viewerOpen && <RoomModalItem room={room} onClose={() => setViewerOpen(false)} />}</>
     );
 }

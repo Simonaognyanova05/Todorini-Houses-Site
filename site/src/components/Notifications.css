@@ -1,0 +1,20 @@
+.site-notices { position: fixed; z-index: 12000; right: 24px; bottom: 24px; width: min(420px, calc(100% - 32px)); display: grid; gap: 12px; pointer-events: none; }
+.site-notice { display: flex; align-items: flex-start; gap: 14px; padding: 21px; background: #f8f6f0; color: #222; border-left: 3px solid #b4513e; box-shadow: 0 12px 45px #0003; pointer-events: auto; animation: notice-enter .2s ease-out; }
+.site-notice--success { border-color: #ffd700; }
+.site-notice__icon { display: grid; place-items: center; flex: 0 0 28px; height: 28px; border: 1px solid #b4513e; border-radius: 50%; color: #913e30; }
+.site-notice--success .site-notice__icon { color: #222; border-color: #c5ad22; }
+.site-notice strong { display: block; margin-bottom: 5px; font-size: 14px; }
+.site-notice p { margin: 0; font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
+.site-notice > button { flex: 0 0 28px; margin: -6px -8px 0 auto; border: 0; background: transparent; color: #625e54; font-size: 25px; cursor: pointer; }
+.site-confirm-backdrop { position: fixed; inset: 0; z-index: 13000; display: grid; place-items: center; padding: 24px; background: #111b; backdrop-filter: blur(8px); }
+.site-confirm { width: min(460px, 100%); max-height: calc(100dvh - 48px); overflow: auto; padding: 36px; background: #f8f6f0; color: #222; border-top: 3px solid #ffd700; box-shadow: 0 30px 100px #0005; animation: notice-enter .2s ease-out; }
+.site-confirm__eyebrow { font-size: 10px; letter-spacing: .2em; color: #777063; }
+.site-confirm h2 { margin: 20px 0 14px; font: 400 32px/1.2 Georgia, serif; }
+.site-confirm p { font-size: 14px; line-height: 1.8; color: #625e54; }
+.site-confirm__actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 28px; }
+.site-confirm__actions button { min-height: 44px; padding: 10px 22px; border: 1px solid #d5d0c3; background: transparent; color: #222; cursor: pointer; }
+.site-confirm__actions button:last-child { background: #222; border-color: #222; color: #ffd700; }
+.site-confirm button:focus-visible, .site-notice button:focus-visible { outline: 3px solid #c4a900; outline-offset: 3px; }
+@keyframes notice-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 520px) { .site-notices { bottom: 16px; right: 16px; } .site-confirm { padding: 26px; } }
+@media (prefers-reduced-motion: reduce) { .site-notice, .site-confirm { animation: none; } }

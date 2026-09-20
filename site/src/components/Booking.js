@@ -1,3 +1,4 @@
+import { notify } from '../services/notifications';
 import { useRef, useState } from 'react';
 import { ROOM_TYPES } from '../services/bookingValidation';
 import { useNavigate } from 'react-router-dom';
@@ -29,11 +30,11 @@ export default function Booking() {
 
         if (busy.current) return;
         if (formData.get('website') || Date.now() - startedAt.current < 5000) {
-            alert('Моля, проверете данните и опитайте отново след няколко секунди.');
+            notify('Моля, проверете данните и опитайте отново след няколко секунди.');
             return;
         }
         if (formData.get('humanCheck') !== 'on' || Number(formData.get('challengeAnswer')) !== challenge.answer) {
-            alert('Моля, потвърдете, че не сте робот, и решете правилно задачата.');
+            notify('Моля, потвърдете, че не сте робот, и решете правилно задачата.');
             return;
         }
         let storedLastSent = 0;
@@ -44,7 +45,7 @@ export default function Booking() {
         }
         const remaining = COOLDOWN_MS - (Date.now() - Math.max(lastSent.current, Number.isFinite(storedLastSent) ? storedLastSent : 0));
         if (remaining > 0) {
-            alert('Можете да изпратите нова резервация след ' + Math.ceil(remaining / 60000) + ' мин.');
+            notify('Можете да изпратите нова резервация след ' + Math.ceil(remaining / 60000) + ' мин.');
             return;
         }
         busy.current = true;
@@ -58,10 +59,10 @@ export default function Booking() {
                 } catch {
                     // A successful reservation must not be reported as failed if storage is blocked.
                 }
-                alert('Резервацията е създадена успешно!');
+                notify('Резервацията е създадена успешно!', 'success');
                 navigate('/booking');
             } else {
-                alert(result.message);
+                notify(result.message);
             }
         } finally {
             busy.current = false;
@@ -75,7 +76,7 @@ export default function Booking() {
                     <div className="section-header">
                         <h2>Направете резервация</h2>
                         <p>
-                            От тук може да направите резервация. <br /> <b>ВАЖНО!!!</b> След като направите резервацията, ще Ви бъде изпратен имейл за потвърждение!
+                            Изберете дати за Вашия престой и оставете грижата за останалото на нас.<br />Ще получите потвърждение на резервацията по имейл.
                         </p>
                     </div>
                     <div className="row">
